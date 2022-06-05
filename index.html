@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>first 20 elements - Periodic Table</title>
+	<style>
+		body {
+			background-color: #320A28;
+			color: #CB9173;
+			/*font-size: 15px;*/
+			text-align: center;
+		}
+
+		table {
+			border: solid #D1BE9C;
+			border-width: 20px;
+			border-radius: 10px;
+			margin: auto;
+			margin-bottom: 50px;
+		}
+
+		th {
+			color: #E0D68A;
+		}
+		
+		td {
+			width: 100px;
+		}
+
+		#color_row {
+			background-color: #511730;
+			width: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<table id="period_elements">
+		<h1>Periodic table</h1>
+		<tr>
+			<th id="color_row">Name</th>
+			<th>Symbol</th>
+			<th id="color_row">Atomic Number</th>
+		</tr>
+	</table>
+	<script>
+		p_elements = document.getElementById("period_elements");
+		elements = {"H":"Hydrogen",
+			"He":"Helium",
+			"Li":"Lithium",
+			"Be":"Beryllium",
+			"B":"Boron",
+			"C":"Carbon",
+			"N":"Nitrogen",
+			"O":"Oxygen",
+			"F":"Fluorine",
+			"Ne":"Neon",
+			"Na":"Sodium",
+			"Mg":"Magnesium",
+			"Al":"Aluminum",
+			"Si":"Silicon",
+			"P":"Phosphorus",
+			"S":"Sulphur",
+			"Cl":"Chlorine",
+			"Ar":"Argon",
+			"K":"Potassium",
+			"Ca":"Calcium"}
+		i = 1
+		for(element in elements) {
+			new_row = document.createElement("tr");
+			// symbol
+			new_sym = document.createElement("td");
+			new_sym.textContent = element;
+			// new_sym.setAttribute("id", "color_row");
+			
+			// element name
+			new_el = document.createElement("td");
+			new_el.textContent = elements[element];
+			new_el.setAttribute("id", "color_row");
+
+			// atomic number
+			atomic_num = document.createElement("td");
+			atomic_num.textContent = i.toString();
+			atomic_num.setAttribute("id", "color_row");
+
+			//new_row.appendChild(new_sym);
+			//new_row.appendChild(new_el);
+			new_row.appendChild(new_el);
+			new_row.appendChild(new_sym);
+			new_row.appendChild(atomic_num);
+			p_elements.appendChild(new_row);
+			i++;
+		}
+	</script>
+</body>
+</html>
